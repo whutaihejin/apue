@@ -1,5 +1,5 @@
 .PHONY : ALL
-ALL : t7.2 t7.3.1 t7.3.2
+ALL : t7.2 t7.3.1 t7.3.2 t7.4
 
 t7.2 : t7.2.c
 	gcc -std=c99 -Wall t7.2.c -o t7.2
@@ -10,6 +10,9 @@ t7.3.1 : t7.3.1.c
 t7.3.2 : t7.3.2.c
 	gcc -std=c99 -Wall t7.3.2.c -o t7.3.2
 
+t7.4 : t7.4.c
+	gcc -std=c99 -Wall t7.4.c -o t7.4
+
 .PHONY : clean
 clean :  
-		rm -rf t7.2 t7.3.1 t7.3.2
+		rm -rf t7.2 t7.3.1 t7.3.2 t7.4
