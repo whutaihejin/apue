@@ -11,6 +11,41 @@ int main(int argc, char *argv[]) {
     display(RLIMIT_AS);
   #endif
   display(RLIMIT_CORE);
+  display(RLIMIT_CPU);
+  display(RLIMIT_DATA);
+  display(RLIMIT_FSIZE);
+  #ifdef RLIMIT_MEMLOCK 
+    display(RLIMIT_MEMLOCK);
+  #endif
+  #ifdef RLIMIT_MSGQUEUE 
+    display(RLIMIT_MSGQUEUE);
+  #endif
+  #ifdef RLIMIT_NICE 
+    display(RLIMIT_NICE);
+  #endif
+  display(RLIMIT_NOFILE);
+  #ifdef RLIMIT_NPROC
+    display(RLIMIT_NPROC);
+  #endif
+  #ifdef RLIMIT_NPTS 
+    display(RLIMIT_NPTS);
+  #endif
+  #ifdef RLIMIT_RSS
+    display(RLIMIT_RSS);
+  #endif
+  #ifdef RLIMIT_SBSIZE 
+    display(RLIMIT_SBSIZE);
+  #endif
+  #ifdef RLIMIT_SIGPENDING
+    display(RLIMIT_SIGPENDING);
+  #endif
+  display(RLIMIT_STACK);
+  #ifdef RLIMIT_SWAP 
+    display(RLIMIT_SWAP);
+  #endif
+  #ifdef RLIMIT_VMEM
+    display(RLIMIT_VMEM);
+  #endif
   return 0;
 }
 
