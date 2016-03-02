@@ -1,5 +1,5 @@
 .PHONY : ALL
-ALL : t8.2 t8.3 t8.4 t8.6.1 t8.6.2 t8.10.echo t8.10 echo execl t8.15
+ALL : t8.2 t8.3 t8.4 t8.6.1 t8.6.2 t8.10.echo t8.10 echo execl t8.15 t8.16
 
 t8.2 : t8.2.c
 	gcc -std=c99 -Wall -o t8.2 t8.2.c
@@ -30,6 +30,10 @@ execl : execl.c
 
 t8.15 : t8.15.c
 	gcc -std=c99 -Wall -o t8.15 t8.15.c
+
+t8.16 : t8.16.c
+	gcc -std=c99 -Wall -o t8.16 t8.16.c
+	
 .PHONY : clean
 clean :
-	rm -rf t8.2 t8.3 t8.4 t8.6.1 t8.6.2 t8.10.echo t8.10 echo execl t8.15
+	rm -rf t8.2 t8.3 t8.4 t8.6.1 t8.6.2 t8.10.echo t8.10 echo execl t8.15 t8.16
