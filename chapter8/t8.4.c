@@ -29,6 +29,7 @@ int main(int argc, char *argv[]) {
     auto_val++;
     arg_val == 1 ? _exit(0) : exit(0);
   }
+  sleep(3);
   printf("pid = %ld, global_val = %d, auto_val = %d\n", (long)getpid(), global_val, auto_val);
   return 0;
 }
