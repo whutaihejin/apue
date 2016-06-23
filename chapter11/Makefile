@@ -1,13 +1,13 @@
 .PHONY : ALL
-ALL : t11.3 t11.4
+ALL :  r11.4 t11.3 t11.4
 
-t11.3 : t11.3.c
-	gcc -Wall -o t11.3 t11.3.c
+r11.4:
+	gcc -g -pthread -o r11.4 r11.4.c
+t11.3:
+	gcc -g -pthread -o t11.3 t11.3.c
+t11.4:
+	gcc -g -pthread -o t11.4 t11.4.c
 
 .PHONY : clean
-
-t11.4 : t11.4.c
-	gcc -Wall -pthread -o t11.4 t11.4.c
-
-clean :
-	rm -rf t11.3 t11.4
+clean : 
+	 rm -rf  r11.4 t11.3 t11.4
