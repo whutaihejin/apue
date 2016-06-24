@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+void abort(int err, const char* indicator) {
+  printf("%s error %d\n", indicator, err);
+  exit(1);
+}
+int main(int argc, char* argv[]) {
+  return 0;
+}
