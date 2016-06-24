@@ -2,8 +2,7 @@
 
 # if Makefile already exists, just rename it
 if [ -f Makefile ]; then
-  echo 'INFO: find Makefile in current directory, rename it to Makefile.origin instead'
-  mv Makefile Makefile.origin
+  rm Makefile
 fi
 suffix=.c
 # generate make file body
