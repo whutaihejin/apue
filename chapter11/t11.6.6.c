@@ -33,7 +33,6 @@ struct msg* poll() {
   struct msg* item;
   pthread_mutex_lock(&mutex);
   while (queue == NULL) {
-    printf("queue addr %lx\n", (unsigned long)queue);
     pthread_cond_wait(&ready, &mutex);
   }
   item = queue;
@@ -43,7 +42,6 @@ struct msg* poll() {
 }
 
 void* thread_task(void* arg) {
-  printf("thread task %lx\n", (unsigned long)queue);
   for (;;) {
     struct msg* item = poll();
     printf("poll msg: id %d addr %lx\n", item->id, (unsigned long)item);
