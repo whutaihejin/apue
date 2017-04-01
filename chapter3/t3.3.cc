@@ -5,7 +5,7 @@
 
 class OpenTest : public testing::Test {
 
-public:
+protected:
   OpenTest(): fd_(-1), path_("/tmp/apue.log") {}
 
   virtual void SetUp() {
@@ -25,15 +25,19 @@ public:
 TEST_F(OpenTest, TestReadOnly) {
   int fd = open(path_, O_RDONLY);
   printf("-- fd = %d\n", fd); 
+  close(fd); 
   fd = open(path_, O_RDONLY);
   printf("-- fd = %d\n", fd); 
+  close(fd); 
 }
 
 TEST_F(OpenTest, TestWriteOnly) {
   int fd = open(path_, O_RDONLY);
   printf("-- fd = %d\n", fd); 
+  close(fd); 
   fd = open(path_, O_RDONLY);
   printf("-- fd = %d\n", fd); 
+  close(fd); 
 }
 
 int main(int argc, char* argv[]) {

@@ -31,10 +31,11 @@ THIRD_PARTY  := ../third-party
 GOOGLE_TEST  := $(THIRD_PARTY)/gtest
 INCLUDE_PATH := -I$(GOOGLE_TEST)/include
 
-LINK_LIB     := $(GOOGLE_TEST)/lib/libgtest.a
+LINK_LIB     := -lpthread 
+LINK_LIB     += $(GOOGLE_TEST)/lib/libgtest.a
 
-CXXFLAGS     += -lpthread $(INCLUDE_PATH) $(OPT)
-CFLAGS       += -lpthread $(INCLUDE_PATH) $(OPT)
+CXXFLAGS     += $(INCLUDE_PATH) $(OPT)
+CFLAGS       += $(INCLUDE_PATH) $(OPT)
 
 PROGRAMS     := $(SOURCES:.cc=)
 
