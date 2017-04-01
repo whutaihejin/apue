@@ -24,19 +24,25 @@ protected:
 
 TEST_F(OpenTest, TestReadOnly) {
   int fd = open(path_, O_RDONLY);
-  printf("-- fd = %d\n", fd); 
-  close(fd); 
-  fd = open(path_, O_RDONLY);
-  printf("-- fd = %d\n", fd); 
+  printf("-- fd = %d read only\n", fd); 
   close(fd); 
 }
 
 TEST_F(OpenTest, TestWriteOnly) {
-  int fd = open(path_, O_RDONLY);
-  printf("-- fd = %d\n", fd); 
+  int fd = open(path_, O_WRONLY);
+  printf("-- fd = %d write only\n", fd); 
   close(fd); 
-  fd = open(path_, O_RDONLY);
-  printf("-- fd = %d\n", fd); 
+}
+
+TEST_F(OpenTest, TestRDWR) {
+  int fd = open(path_, O_RDWR);
+  printf("-- fd = %d read writer\n", fd); 
+  close(fd); 
+}
+
+TEST_F(OpenTest, TestEXEC) {
+  int fd = open(path_, O_CREAT);
+  printf("-- fd = %d, create\n", fd); 
   close(fd); 
 }
 
