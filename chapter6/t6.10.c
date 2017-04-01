@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
+
 void time_show(struct tm* ptr, const char* prefix) {
   char buf[64];
   if (strftime(buf, sizeof(buf), "%c", ptr) == 0) {
@@ -9,6 +10,7 @@ void time_show(struct tm* ptr, const char* prefix) {
   }
   printf("%s: time %s\n", prefix, buf);
 }
+
 int main(int argc, char* argv[]) {
   // time test
   time_t t = time(NULL);
