@@ -45,6 +45,9 @@ PROGRAMS     := $(SOURCES:.cc=)
 
 all: $(PROGRAMS)
 
+check: $(PROGRAMS)
+	for t in $(PROGRAMS); do echo "****** Runnig $$t ******"; ./$$t || exit 1; done
+
 clean:
 	rm -rf $(PROGRAMS) 
 
