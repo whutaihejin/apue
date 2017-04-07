@@ -123,6 +123,38 @@ TEST_F(OpenTest, TestTruncate) {
   EXPECT_NE(-1, fd);
   close(fd);
 }
+
+TEST_F(OpenTest, TestOpenatAbsolute) {
+  int fd = open(path_, O_RDONLY);
+  printf("-- fd = %d, openat absolute\n", fd);
+  EXPECT_NE(-1, fd);
+  close(fd);
+  fd = openat(fd, "/tmp/openat.log", O_CREAT | O_RDONLY);
+  printf("-- fd = %d, openat obsolute\n", fd);
+  EXPECT_NE(-1, fd);
+  close(fd); 
+}
+
+TEST_F(OpenTest, TestOpenatRelative) {
+  int fd = open("/tmp/", O_DIRECTORY);
+  printf("-- fd = %d, openat relative 1\n", fd);
+  EXPECT_NE(-1, fd);
+  //close(fd);
+  int at_fd = openat(fd, "openat_relative.log", O_RDONLY|O_CREAT);
+  printf("-- fd = %d, openat relative 2\n", at_fd);
+  EXPECT_NE(-1, at_fd);
+  close(fd); 
+}
+
+TEST_F(OpenTest, TestOpenatcwd) {
+  int fd = open("/tmp/", O_DIRECTORY);
+  printf("-- fd = %d, openat relative 1\n", fd);
+  EXPECT_NE(-1, fd);
+  int at_fd = openat(AT_FDCWD, "openat_relative.log", O_RDONLY|O_CREAT);
+  printf("-- fd = %d, openat relative 2\n", at_fd);
+  EXPECT_NE(-1, at_fd);
+  close(fd); 
+}
 int main(int argc, char* argv[]) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
