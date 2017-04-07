@@ -155,6 +155,7 @@ TEST_F(OpenTest, TestOpenatcwd) {
   EXPECT_NE(-1, at_fd);
   close(fd); 
 }
+
 int main(int argc, char* argv[]) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
